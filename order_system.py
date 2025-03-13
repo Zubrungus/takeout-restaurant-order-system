@@ -73,7 +73,7 @@ def place_order(menu):
 
             # DONE: Create an order_total from the prices list using sum()
             # and round the prices to 2 decimal places.
-            order_total = sum(prices_list)
+            order_total = round(sum(prices_list), 2)
 
             # Write a break statement or set the condition to False to exit
             # the ordering loop
@@ -101,7 +101,7 @@ def update_order(order: list, menu_selection: str, menu_items: dict):
     # DONE: Check if the customer's input string can be converted 
     # to an integer and prints an error message if it does not
     if not menu_selection.isdigit():
-        print("Error. Please enter a number.")
+        print(f"Error, {menu_selection} was not a menu option.")
 
     else:
         # DONE: Convert the menu selection to an integer
@@ -110,7 +110,7 @@ def update_order(order: list, menu_selection: str, menu_items: dict):
         # DONE: Write a conditional statement that checks if the customer's input is 
         # an item on the menu and prints an error message if it is not
         if menu_selection > len(menu_items):
-            print("Error. Menu item not found.")
+            print(f"Error, {menu_selection} was not a menu option.")
         else:
 
             # Store the item name as a variable
@@ -119,7 +119,8 @@ def update_order(order: list, menu_selection: str, menu_items: dict):
             # DONE: A prompt (input) to the customer that prints the name of the 
             # menu item to the user and asks the quantity they would like to order.
             # Store the return in a quantity variable
-            quantity = input("How many {item_name} would you like to order? ")
+            quantity = input(f"What quantity of {item_name} would you like?\n")
+            print("(This will default to 1 if number is not entered)")
             
 
             # DONE: Write a conditional statement that checks if the input quantity 
